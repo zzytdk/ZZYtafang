@@ -28,13 +28,23 @@ SOURCES += \
         mainwindow.cpp \
     mainmap.cpp \
     playbutton.cpp \
-    icon.cpp
+    icon.cpp \
+    tdobj.cpp \
+    tower1.cpp \
+    tower2.cpp \
+    enemy1.cpp \
+    enemy2.cpp
 
 HEADERS += \
         mainwindow.h \
     mainmap.h \
     playbutton.h \
-    icon.h
+    icon.h \
+    tdobj.h \
+    tower1.h \
+    tower2.h \
+    enemy1.h \
+    enemy2.h
 
 FORMS += \
         mainwindow.ui

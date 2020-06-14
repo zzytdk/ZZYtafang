@@ -6,5 +6,6 @@
         <file>Word2.png</file>
         <file>playbutton.png</file>
         <file>background.png</file>
+        <file>map.png</file>
     </qresource>
 </RCC>

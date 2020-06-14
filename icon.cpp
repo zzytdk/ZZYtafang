@@ -5,9 +5,15 @@ int Icon::GRID_SIZE = 32;
 
 pair<string,Icon> pairArray[] =
 {
-    make_pair("player",Icon("player",1,13, 1, 2)),
-    make_pair("stone",Icon("stone",4,9, 1, 1)),
-    make_pair("fruit",Icon("fruit",3,6, 1, 1))//待修改
+    make_pair("road1",Icon("road1",0,1,1,1)),
+    make_pair("road2",Icon("road2",1,1,1,1)),
+    make_pair("road3",Icon("road3",2,1,1,1)),
+    make_pair("road4",Icon("road4",4,1,1,1)),
+    make_pair("tree1",Icon("tree1",5,9,1,2)),
+    make_pair("tree2",Icon("tree2",0,12,2,2)),
+    make_pair("trees",Icon("trees",2,12,2,2)),
+
+
 };
 
 map<string,Icon> Icon::GAME_ICON_SET(pairArray,pairArray+sizeof(pairArray)/sizeof(pairArray[0]));

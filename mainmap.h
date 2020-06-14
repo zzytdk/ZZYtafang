@@ -6,6 +6,9 @@
 #include <QPixmap>
 #include <QPaintEvent>
 #include <QPushButton>
+namespace ui{
+class Mainmap;
+}
 
 class Mainmap : public QMainWindow
 {
@@ -17,6 +20,8 @@ public:
 signals:
 
 public slots:
+private:
+    QTimer *timer;
 };
 
 #endif // MAINMAP_H
