@@ -19,16 +19,19 @@ Monster::Monster(int kind,point** path,int pathnum):Monster_kind(kind)
     {
         case 1:
             Monster_life=600;
+            MaxLife=600;
             Monster_speed=12;
             Monster_imagepath=":/pic/monster1.png";
             break;
         case 2:
             Monster_life=800;
+            MaxLife=800;
             Monster_speed=20;
             Monster_imagepath=":/pic/monster2.png";
             break;
         case 3:
             Monster_life=4000;
+            MaxLife=4000;
             Monster_speed=8;
             Monster_imagepath=":/pic/monster3.png";
             break;

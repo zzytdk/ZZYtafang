@@ -32,6 +32,7 @@ public:
     void SetImage(QString path);
 
     QPixmap GetImage(){return this->Monster_image;}
+    int GetMaxLife() const {return this->MaxLife;}
 
 
     void Monster_move();
@@ -42,6 +43,7 @@ public:
 
 private:
     int Monster_life;
+    int MaxLife;
     int Monster_speed;
     int Monster_width;
     int Monster_height;

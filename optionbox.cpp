@@ -7,7 +7,7 @@ Optionbox::Optionbox(int index):BaseIndex(index)
     SetImage3(QString(":/pic/blacktower.png"));
     SetImage4(QString(":/pic/upgrade.png"));
     SetImage5(QString(":/pic/delete.png"));
-    SetBoxImage(QString(":/pic/selectbox.png"));
+    SetBoxImage(QString(":/pic/selectbox.png"));//设置图片路径
     switch(index)
     {
     case 1:
@@ -57,8 +57,8 @@ Optionbox::Optionbox(int index):BaseIndex(index)
         x4=700;
         y4=450+105;
         x5=700+105;
-        y5=400-105;
-        break;
+        y5=450-105;
+        break;//相应坑位的坐标
     }
 }
 void Optionbox::SetImage1(QString path1){

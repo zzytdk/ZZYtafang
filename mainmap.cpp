@@ -1,8 +1,10 @@
 #include "mainmap.h"
 
-#define MouseClick(x1,y1,x2,y2) (mouse->x()>=(x1) && mouse->x()<=(x2) &&mouse->y()>=(y1) && mouse->y()<=(y2))
+#define MouseClick(x1,y1,x2,y2) \
+(mouse->x()>=(x1) && mouse->x()<=(x2) &&mouse->y()>=(y1) && mouse->y()<=(y2))
 
-#define Distance(X1,Y1,X2,Y2) sqrt(((X1)-(X2))*((X1)-(X2))+((Y1)-(Y2))*((Y1)-(Y2)))
+#define Distance(X1,Y1,X2,Y2) \
+sqrt(((X1)-(X2))*((X1)-(X2))+((Y1)-(Y2))*((Y1)-(Y2)))
 
 Mainmap::Mainmap(int hardlevel)
 {
@@ -20,7 +22,7 @@ Mainmap::Mainmap(int hardlevel)
     player->play();
 
 
-    WinLabel->move(QPoint(350,250));
+    WinLabel->move(QPoint(500,250));
     WinLabel->setStyleSheet("color:yellow");
     WinLabel->setFont(QFont("Calibri",50));
     WinLabel->setText("Victory!");
@@ -77,7 +79,7 @@ Mainmap::Mainmap(int hardlevel)
             {
                 Life--;
                 LifeLabel->setText(QString("Life:%1").arg(Life));
-                if(Life<=0){LifeLabel->hide();      WinLabel->setText("GAME OVER!");WinLabel->show();player->stop();}
+                if(Life<=0){LifeLabel->hide();      WinLabel->setText("GAME OVER!");WinLabel->show();}
             }
         }
 
@@ -213,10 +215,14 @@ void Mainmap::DrawSelectBox(QPainter &painter,int index){
 
 void Mainmap::DrawMonster(QPainter &painter){
     for (auto monster : MonsterList){
-        if (monster->IfShow==true)
-
+        if (monster->IfShow==true){
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(Qt::red);
+        painter.drawRect(monster ->GetX(),monster ->GetY()-5,monster->GetWidth(),3);
+        painter.setBrush(Qt::green);
+        painter.drawRect(monster->GetX(),monster ->GetY()-5,monster->GetWidth()*monster->GetLife()/monster->GetMaxLife(),3);
         painter.drawPixmap(monster ->GetX(),monster ->GetY(),monster ->GetWidth(),monster->GetHeight(),monster->GetImage());
-
+        }
     }
 
     update();
@@ -315,7 +321,7 @@ void Mainmap::SetMonsterWave(int hardlevel){
             MonsterList.push_back(new Monster(3,Monster_path,2));
             MonsterList.push_back(new Monster(1,Monster_path,2));
             }
-        if (Monster_number>40){WinLabel->show();return;}
+        if (Monster_number>20){WinLabel->show();return;}
 
         Monster_number++;
 
