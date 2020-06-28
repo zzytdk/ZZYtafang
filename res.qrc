@@ -7,5 +7,25 @@
         <file>playbutton.png</file>
         <file>background.png</file>
         <file>map.png</file>
+        <file>firetower.png</file>
+        <file>monster1.png</file>
+        <file>normtower.png</file>
+        <file>monster2.png</file>
+        <file>selectbox.png</file>
+        <file>towerbase.png</file>
+        <file>blacktower.png</file>
+        <file>upgrade.png</file>
+        <file>monster3.png</file>
+        <file>bullet1.png</file>
+        <file>bullet2.png</file>
+        <file>bullet3.png</file>
+        <file>music2.mp3</file>
+        <file>music1.mp3</file>
+        <file>music3.mp3</file>
+        <file>hardchoose.png</file>
+        <file>easy.png</file>
+        <file>hard.png</file>
+        <file>delete.png</file>
     </qresource>
+    <qresource prefix="/music"/>
 </RCC>

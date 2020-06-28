@@ -1,18 +1,31 @@
 #include "tdobj.h"
 #include <iostream>
 
-void Tdobj::initObj(string type)
-{
-
-
+void Tdobj::SetImage(QString path){
+    QPixmap temp(path);
+    Obj_image=temp;
 }
-void Tdobj::show(QPainter * pa){
-    int gSize = Icon::GRID_SIZE;
-    pa->drawImage(this->_pos_x*gSize,this->_pos_y*gSize,this->_pic);
+void Tdobj::Upgrade(){
+    this->SetDamage(Obj_damage+5);
 }
 
+void Tdobj::BulletMove(){
+    for(auto bullet =BulletList.begin();bullet!=BulletList.end();bullet++){
 
-void Tdobj::onErase(){
+        (*bullet)->Bullet_move();
+
+        if ((*bullet)->GetX()<=20 || (*bullet)->GetX()>=1100 ||(*bullet)->GetY()<=150 ||(*bullet)->GetY()>=450){
+            delete *bullet;
+            BulletList.erase(bullet);
+        }
+        }
 
 }
+
+void Tdobj::AddBullet(){
+
+    Bullet *zidan=new Bullet(kind,Obj_x+40,Obj_y,PreAimMonster);
+    BulletList.push_back(zidan);
+}
+
 

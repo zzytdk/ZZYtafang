@@ -1,13 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+
 #include <QMainWindow>
-#include <QPainter>
-#include <QPixmap>
-#include <QPaintEvent>
-#include <QPushButton>
-#include <QDebug>
-#include <mainmap.h>
+#include "mainmap.h"
+#include <QtMultimedia/QMediaPlayer>
 
 namespace Ui {
 class MainWindow;

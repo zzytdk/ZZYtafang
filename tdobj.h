@@ -3,42 +3,77 @@
 #include <QImage>
 #include <QPainter>
 #include <string>
-#include <icon.h>
 #include <map>
-using namespace std;
+#include <QPixmap>
+#include <QString>
+#include "monster.h"
+#include "bullet.h"
 
+class Bullet;
 
 class Tdobj
 {
 public:
-    Tdobj(){};
-    void initObj(string type);
-    void show(QPainter * painter);
+    int GetX(){return Obj_x;}
+    int GetY(){return Obj_y;}
 
-    void setPosX(int x){this->_pos_x=x;}
-    void setPosY(int y){this->_pos_y=y;}
+    void SetX(int x){Obj_x=x;}
+    void SetY(int y){Obj_y=y;}
 
-    int getPosX() const{return this->_pos_x;}
-    int getPosY() const{return this->_pos_y;}
-    int getHeight() const{return this->_icon.getHeight();}
-    int getWidth() const{return this->_icon.getWidth();}
+    int GetHeight(){return this->Obj_height;}
+    int GetWidth(){return this->Obj_width;}
 
-    bool canSee() const{return this->_seeable;}
-    bool canAttack() const{return this->_attackable;}
+    void SetHeight(int height){this->Obj_height=height;}
+    void SetWidth(int width){this->Obj_width=width;}
+
+    int GetDamage(){return this->Obj_damage;}
+    void SetDamage(int damage){this->Obj_damage=damage;}
+
+    int GetPrice(){return this->Obj_price;}
+    void SetPrice(int price){this->Obj_price=price;}
+
+    void SetAimMonster(Monster* aimmonster){PreAimMonster=aimmonster;}
+    Monster* GetAimMonster(){return PreAimMonster;}
 
 
-    virtual void onErase();
+    int GetRange(){return Obj_range;}
+    void SetRange(int range){Obj_range=range;}
 
-    string getObjType() const{return this->_icon.getTypeName();}
+    void SetImage(QString path);
+
+    void Upgrade();
+    QPixmap GetImage(){return Obj_image;}
+
+    void BulletMove();
+
+    void AddBullet();
+
+    bool IfShow=true;
+
+
+    QVector<Bullet*>& GetBulletList(){return BulletList;}
+    int GetKind(){return this->kind;}
+
+
+
+
+
+
+
 
 protected:
+    int kind;
+    int Obj_x;
+    int Obj_y;
+    int Obj_height;
+    int Obj_width;
+    int Obj_price;
+    QPixmap Obj_image;
+    Monster* PreAimMonster=NULL;
+    int Obj_damage;
+    int Obj_range;
+    QVector<Bullet*> BulletList;
 
-
-    QImage _pic;
-    int _pos_x, _pos_y;
-    Icon _icon;
-    bool _seeable;
-    bool _attackable;
 
   
 };

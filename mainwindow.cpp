@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "playbutton.h"
+#include "hardlevelchoosing.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,10 +12,17 @@ MainWindow::MainWindow(QWidget *parent) :
     Playbutton * play=new Playbutton(":/pic/playbutton.png");
     play->setParent(this);
     play->move(533,380);
-    Mainmap *map =new Mainmap;
+
+    QMediaPlayer * player = new QMediaPlayer;
+    player->setMedia(QUrl("qrc:/pic/music3.mp3"));
+    player->setVolume(30);
+    player->play();
+
     connect(play,&Playbutton::clicked,this,[=](){
                 this->close();
-                map->show();
+                player->stop();
+                Hardlevelchoosing *Hard=new Hardlevelchoosing;
+                Hard->show();
                 });
 
 }

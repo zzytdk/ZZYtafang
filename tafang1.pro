@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,26 +29,34 @@ SOURCES += \
         mainwindow.cpp \
     mainmap.cpp \
     playbutton.cpp \
-    icon.cpp \
     tdobj.cpp \
-    tower1.cpp \
-    tower2.cpp \
-    enemy1.cpp \
-    enemy2.cpp
+    monster.cpp \
+    normtower.cpp \
+    towerbase.cpp \
+    optionbox.cpp \
+    blacktower.cpp \
+    firetower.cpp \
+    bullet.cpp \
+    hardlevelchoosing.cpp
 
 HEADERS += \
         mainwindow.h \
     mainmap.h \
     playbutton.h \
-    icon.h \
     tdobj.h \
-    tower1.h \
-    tower2.h \
-    enemy1.h \
-    enemy2.h
+    monster.h \
+    struct.h \
+    normtower.h \
+    towerbase.h \
+    optionbox.h \
+    blacktower.h \
+    firetower.h \
+    bullet.h \
+    hardlevelchoosing.h
 
 FORMS += \
         mainwindow.ui
 
 RESOURCES += \
     res.qrc
+CONFIG+= resources_big

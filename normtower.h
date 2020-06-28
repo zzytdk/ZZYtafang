@@ -1,11 +1,14 @@
 #ifndef NORMTOWER_H
 #define NORMTOWER_H
+#include "tdobj.h"
+#include <Qstring>
 
 
-class Normtower
+class Normtower:public Tdobj
 {
 public:
-    Normtower();
+    Normtower(int x,int y);
+
 };
 
 #endif // NORMTOWER_H
